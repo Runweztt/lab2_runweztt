@@ -1,8 +1,8 @@
 import csv
 
-# ─────────────────────────────────────────────
+
 # Load CSV
-# ─────────────────────────────────────────────
+
 def load_tweets(filename="twitter_dataset.csv"):
     tweets = []
     try:
@@ -15,9 +15,9 @@ def load_tweets(filename="twitter_dataset.csv"):
     return tweets
 
 
-# ─────────────────────────────────────────────
+
 # Quest 1: Data Auditor — Clean missing fields
-# ─────────────────────────────────────────────
+
 def audit_data(tweets):
     cleaned = []
     fixed = 0
@@ -48,9 +48,9 @@ def audit_data(tweets):
     return cleaned
 
 
-# ─────────────────────────────────────────────
+
 # Quest 2: Viral Post — Find max Likes (no max())
-# ─────────────────────────────────────────────
+
 def find_viral_post(tweets):
     if len(tweets) == 0:
         print("No tweets to analyse.")
@@ -69,13 +69,12 @@ def find_viral_post(tweets):
     print(f"  Text     : {max_tweet.get('Text', 'N/A')}")
 
 
-# ─────────────────────────────────────────────
+
 # Quest 3: Custom Sort — Partial Selection Sort
-# We only need top 10, so we run Selection Sort
-# just 10 times (find the max each pass and swap
+# We only need top 10, so we run Selection Sort just 10 times (find the max each pass and swap
 # it to the front). This is O(10 * n) instead of
 # O(n²), fast on large datasets, no built-ins used.
-# ─────────────────────────────────────────────
+
 def partial_selection_sort_top10(tweets, top_n=10):
     arr = list(tweets)
     n = len(arr)
@@ -103,9 +102,9 @@ def show_top10(tweets):
         print()
 
 
-# ─────────────────────────────────────────────
+
 # Quest 4: Content Filter — keyword search
-# ─────────────────────────────────────────────
+
 def search_tweets(tweets):
     keyword = input("\nEnter a search word: ").strip().lower()
     results = []
@@ -123,9 +122,9 @@ def search_tweets(tweets):
         print(f"  {tweet.get('Text', '')[:120]}")
 
 
-# ─────────────────────────────────────────────
+
 # Main
-# ─────────────────────────────────────────────
+
 if __name__ == "__main__":
     raw_tweets = load_tweets("twitter_dataset.csv")
 
